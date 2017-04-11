@@ -25,13 +25,13 @@ flipped_samples = df[["center_img_path", "steering_angle","flip"]].values
 
 # use left camera images
 df["flip"] = False
-df["steering_angle"] = -0.2
+df["steering_angle"] += 0.2
 left_samples = df[["left_img_path", "steering_angle","flip"]].values
 
 # make a deep copy of data
 
 # use right camera images
-df["steering_angle"] = 0.2
+df["steering_angle"] -= 0.2
 right_samples = df[["right_img_path", "steering_angle","flip"]]
 
 total_data = np.concatenate((samples,flipped_samples,left_samples,right_samples),axis = 0)
